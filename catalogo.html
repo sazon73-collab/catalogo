@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ron Bodega 1800 | Catálogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-gold: #c5a059; --dark-bg: #0a0a0a; --card-bg: #161616; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--dark-bg); color: #fff; margin: 0; padding: 0; }
+        
+        /* --- PORTADA --- */
+        .hero-cover { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://i.postimg.cc/D0jvGVQ1/FONDO_PORTADA.jpg'); background-size: cover; background-position: center; }
+        .brand-logo-main { width: 90%; max-width: 600px; height: auto; margin-bottom: 20px; }
+        .hero-cover h1 { font-size: 2rem; letter-spacing: 5px; text-transform: uppercase; margin: 0; opacity: 0.9; font-weight: 700; }
+
+        /* --- SECCIONES --- */
+        .starry-background { padding: 60px 15px; background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url('https://i.postimg.cc/KjzNxF2d/stars.jpg'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        
+        /* --- TARJETAS --- */
+        .product-card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.2); display: flex; flex-direction: column; }
+        .product-image { width: 100%; height: 350px; object-fit: cover; display: block; border-bottom: 2px solid var(--primary-gold); }
+        .product-info { padding: 20px; text-align: center; flex-grow: 1; }
+        .product-info h3 { color: var(--primary-gold); margin: 0 0 5px 0; font-size: 1.3rem; text-transform: uppercase; }
+        .product-info small { color: #fff; opacity: 0.6; font-weight: bold; text-transform: uppercase; font-size: 0.75rem; }
+        .product-info p { font-size: 0.85rem; opacity: 0.8; margin-top: 15px; min-height: 40px; }
+
+        /* --- BOTONES PRODUCTO --- */
+        .btn-group { display: flex; gap: 10px; padding: 0 15px 20px; }
+        .btn { flex: 1; padding: 12px; border-radius: 8px; font-weight: bold; text-decoration: none; text-align: center; font-size: 0.8rem; border: none; cursor: pointer; text-transform: uppercase; }
+        .btn-video { background: var(--primary-gold); color: #000; }
+        .btn-whatsapp { background: #25D366; color: #fff; }
+        
+        /* --- TÍTULOS --- */
+        .muco-title { color: #fff; font-size: 2rem; text-transform: uppercase; letter-spacing: 4px; text-align: center; margin: 0; font-weight: 700; }
+        
+        /* --- DIVISOR CENTRAL --- */
+        .brand-divider { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://i.postimg.cc/4yftSMhg/FONDO-EL-MUCO.png'); background-size: cover; background-position: center; border-top: 2px solid var(--primary-gold); border-bottom: 2px solid var(--primary-gold); }
+        .logo-muco-section { width: 220px; margin-bottom: 20px; }
+
+        /* --- FOOTER CORREGIDO --- */
+        .footer-cover { background: #000; padding: 60px 20px; text-align: center; border-top: 2px solid var(--primary-gold); }
+        .footer-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        
+        .footer-brands { display: flex; justify-content: center; width: 100%; flex-wrap: wrap; gap: 60px; }
+        .footer-brand-box { display: flex; flex-direction: column; align-items: center; gap: 20px; flex: 1; min-width: 200px; }
+        
+        /* Ajuste de logos idénticos y alineados */
+        .footer-logo-img { height: 90px; width: auto; object-fit: contain; filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.2)); }
+        
+        .social-btn { width: 100%; max-width: 220px; padding: 12px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.8rem; color: #000; background: var(--primary-gold); text-transform: uppercase; }
+
+        .web-btn { width: 100%; max-width: 500px; padding: 15px; border-radius: 30px; text-decoration: none; font-weight: 800; font-size: 0.9rem; color: #fff; border: 2px solid var(--primary-gold); text-transform: uppercase; margin-top: 10px; }
+
+        /* MODAL */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; }
+        .modal-content { width: 90%; max-width: 400px; position: relative; }
+        .close-modal { position: absolute; top: -40px; right: 0; color: #fff; font-size: 30px; cursor: pointer; }
+        video { width: 100%; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <section class="hero-cover">
+        <img src="https://i.postimg.cc/C5HP6SsJ/LOGO_BODEGA_1800.png" class="brand-logo-main">
+        <h1>Catálogo Digital</h1>
+    </section>
+
+    <div class="starry-background">
+        <div class="catalog-grid" id="catalog"></div>
+    </div>
+
+    <section class="brand-divider">
+        <img src="https://i.postimg.cc/Jzgc1SKH/LOGO-MUCO-BLANCO-PNG.png" class="logo-muco-section">
+        <h2 class="muco-title">Productos El Muco</h2>
+    </section>
+
+    <div class="starry-background">
+        <h2 class="muco-title" style="margin-bottom: 40px;">Rones Añejos El Muco</h2>
+        <div class="catalog-grid" id="catalog-rones-anejos"></div>
+
+        <h2 class="muco-title" style="margin: 60px 0 40px 0;">Licores Secos</h2>
+        <div class="catalog-grid" id="catalog-licores-secos"></div>
+        
+        <h2 class="muco-title" style="margin: 60px 0 40px 0;">Bebidas para Coctelería</h2>
+        <div class="catalog-grid" id="catalog-cocteleria"></div>
+        
+        <h2 class="muco-title" style="margin: 60px 0 40px 0;">Línea de Celebración</h2>
+        <div class="catalog-grid" id="catalog-celebracion"></div>
+    </div>
+
+    <footer class="footer-cover">
+        <div class="footer-container">
+            <div class="footer-brands">
+                <div class="footer-brand-box">
+                    <img src="https://i.postimg.cc/Jzgc1SKH/LOGO-MUCO-BLANCO-PNG.png" class="footer-logo-img">
+                    <a href="https://www.instagram.com/elmucove/" target="_blank" class="social-btn">@elmucove</a>
+                </div>
+                <div class="footer-brand-box">
+                    <img src="https://i.postimg.cc/C5HP6SsJ/LOGO_BODEGA_1800.png" class="footer-logo-img">
+                    <a href="https://www.instagram.com/ronbodega1800/" target="_blank" class="social-btn">@ronbodega1800</a>
+                </div>
+            </div>
+            
+            <a href="http://www.ronbodega1800.com" target="_blank" class="web-btn">www.ronbodega1800.com</a>
+            
+            <p style="font-size: 0.7rem; opacity: 0.4; margin-top: 20px;">&copy; 2025 Ron Bodega 1800 | Venezuela</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeVideo()">✕</span>
+            <div id="videoContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        const productsBodega = [
+            { name: "Ron Bodega Millenium", type: "12 Años", sizes: ["0,70 lt"], desc: "Selección maestra de barricas.", image: "https://i.postimg.cc/wMDLM6Fy/RON_BODEGA_1800_MILLENIUM.png", video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" },
+            { name: "Ron Bodega Negro", type: "8 Años", sizes: ["0,70 lt"], desc: "Cuerpo robusto y añejamiento superior.", image: "https://i.postimg.cc/Wz0gz2Sd/RON_BODEGA_1800_NEGRO.png", video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" },
+            { name: "Ron Bodega Antiguo", type: "6 Años", sizes: ["0,70 lt"], desc: "Equilibrio perfecto de sabor.", image: "https://i.postimg.cc/br1krzLG/RON_BODEGA_1800_ANTIGUO.png", video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" }
+        ];
+
+        const ronesAnejos = [
+            { name: "El Muco", type: "Ron Añejo", sizes: ["0,35 lt", "0,70 lt", "1 lt"], desc: "Carácter y tradición.", image: "https://i.postimg.cc/sDR58hgd/RON_AÑEJO_EL_MUCO.jpg", video: "" },
+            { name: "Dinastía", type: "Ron Extra Añejo", sizes: ["0,70 lt"], desc: "Elegancia destilada.", image: "https://i.postimg.cc/bNj1Mtwf/DINASTIA.png", video: "" },
+            { name: "Emperador", type: "Ron Extra Añejo", sizes: ["0,70 lt"], desc: "El legado de la familia.", image: "https://i.postimg.cc/wTdDPmjK/EMPERADOR_CON_VASO.jpg", video: "" }
+        ];
+
+        const licoresSecos = [
+            { name: "El Muco", type: "Licor Seco", sizes: ["0,70 lt", "1 lt"], desc: "Pureza clásica.", image: "https://i.postimg.cc/Xq6BTR3d/LICOR_SECO_EL_MUCO.jpg", video: "" },
+            { name: "Villa Teresa", type: "Licor Seco", sizes: ["0,35 lt", "0,70 lt", "1 lt"], desc: "Favorito por generaciones.", image: "https://i.postimg.cc/hvRQHkg1/LICOR_SECO_VILLA_TERESA.png", video: "" },
+            { name: "Altagracia", type: "Licor Seco", sizes: ["1 lt"], desc: "Sabor firme y balanceado.", image: "https://i.postimg.cc/GtnTZWrv/LICOR_SECO_ALTAGRACIA_png.jpg", video: "" },
+            { name: "La Cocuiza", type: "Licor Seco", sizes: ["1 lt"], desc: "Destilado de alta calidad.", image: "https://i.postimg.cc/fyQS6GZX/LICOR_SECO_COCUIZA_png.jpg", video: "" },
+            { name: "Blanquito", type: "Bebida Espirituosa", sizes: ["1 lt"], desc: "Ideal para compartir.", image: "https://i.postimg.cc/2yNLPsm4/LICOR_SECO_BLANQUITO.png", video: "" }
+        ];
+
+        const cocteleria = [
+            { name: "Anís El Muco", type: "Licor Dulce", sizes: ["1 lt"], desc: "Aroma inconfundible.", image: "https://i.postimg.cc/50CFK4c2/ANIS_2.png", video: "" },
+            { name: "DryGyn", type: "Cítrus", sizes: ["0,75 lt"], desc: "Esencia botánica refrescante.", image: "https://i.postimg.cc/Hxy7vYGY/GYN.jpg", video: "" },
+            { name: "Vodka", type: "Cítrus", sizes: ["0,75 lt"], desc: "Neutralidad y pureza.", image: "https://i.postimg.cc/9M7qgm3X/VODKA_png.jpg", video: "" }
+        ];
+
+        const celebracion = [
+            { name: "Blason d'Or", type: "Demi-Sec", sizes: ["0,75 lt"], desc: "Brindis de distinción.", image: "https://i.postimg.cc/K80LRprb/CELEBRACION_VINO_BLASON_png.jpg", video: "" },
+            { name: "Novello", type: "Tinto Espumante", sizes: ["0,75 lt"], desc: "Innovación en burbujas.", image: "https://i.postimg.cc/9fS7B4nP/NOVELLO.png", video: "" },
+            { name: "Manzanares", type: "Vino de Manzana", sizes: ["0,75 lt"], desc: "Sabor frutal natural.", image: "https://i.postimg.cc/5tjzv5nw/MANZANARES.jpg", video: "" },
+            { name: "Piccolino", type: "Vino Blanco Soda", sizes: ["0,75 lt"], desc: "Chispeante y ligero.", image: "https://i.postimg.cc/g05ZKwTV/PICCOLINO.png", video: "" },
+            { name: "Sangría Plaza Real", type: "Sangría", sizes: ["1,75 lt"], desc: "Sabor tradicional.", image: "https://i.postimg.cc/pd7FB96D/SANGRIA_png.jpg", video: "" }
+        ];
+
+        function createCard(p) {
+            const sizeUI = p.sizes ? (p.sizes.length > 1 
+                ? `<select style="width:100%; padding:8px; border-radius:5px; margin-bottom:10px; background:#1a1a1a; color:#fff; border:1px solid var(--primary-gold); font-family:Montserrat;">
+                    ${p.sizes.map(s => `<option value="${s}">${s}</option>`).join('')}
+                   </select>`
+                : `<p style="font-size:0.8rem; opacity:0.7; margin-bottom:10px;">${p.sizes[0]}</p>`) : "";
+
+            return `<div class="product-card">
+                <img src="${p.image}" class="product-image">
+                <div class="product-info">
+                    <h3>${p.name}</h3>
+                    ${p.type ? `<small>${p.type}</small>` : ""}
+                    <div style="margin-top:10px;">${sizeUI}</div>
+                    <p>${p.desc}</p>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-video" onclick="openVideo('${p.video}')">Video</button>
+                    <a href="https://wa.me/584129232971" class="btn btn-whatsapp">Pedir</a>
+                </div>
+            </div>`;
+        }
+
+        function render() {
+            document.getElementById('catalog').innerHTML = productsBodega.map(p => createCard(p)).join('');
+            document.getElementById('catalog-rones-anejos').innerHTML = ronesAnejos.map(p => createCard(p)).join('');
+            document.getElementById('catalog-licores-secos').innerHTML = licoresSecos.map(p => createCard(p)).join('');
+            document.getElementById('catalog-cocteleria').innerHTML = cocteleria.map(p => createCard(p)).join('');
+            document.getElementById('catalog-celebracion').innerHTML = celebracion.map(p => createCard(p)).join('');
+        }
+
+        function openVideo(url) {
+            if(!url) return alert("Video no disponible.");
+            document.getElementById('videoContainer').innerHTML = `<video controls autoplay><source src="${url}" type="video/mp4"></video>`;
+            document.getElementById('videoModal').style.display = 'flex';
+        }
+
+        function closeVideo() { document.getElementById('videoModal').style.display = 'none'; document.getElementById('videoContainer').innerHTML = ''; }
+        render();
+    </script>
+</body>
+</html>
