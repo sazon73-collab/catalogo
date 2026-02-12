@@ -16,19 +16,27 @@
 
         /* --- SECCIONES --- */
         .starry-background { padding: 60px 15px; background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url('https://i.postimg.cc/KjzNxF2d/stars.jpg'); background-size: cover; background-position: center; background-attachment: fixed; }
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
         
         /* --- TARJETAS --- */
         .product-card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.2); display: flex; flex-direction: column; }
         .product-image { width: 100%; height: 350px; object-fit: cover; display: block; border-bottom: 2px solid var(--primary-gold); }
-        .product-info { padding: 20px; text-align: center; flex-grow: 1; }
-        .product-info h3 { color: var(--primary-gold); margin: 0 0 5px 0; font-size: 1.3rem; text-transform: uppercase; }
-        .product-info small { color: #fff; opacity: 0.6; font-weight: bold; text-transform: uppercase; font-size: 0.75rem; }
-        .product-info p { font-size: 0.85rem; opacity: 0.8; margin-top: 15px; min-height: 40px; }
+        .product-info { padding: 25px; text-align: left; flex-grow: 1; }
+        .product-info h3 { color: var(--primary-gold); margin: 0 0 5px 0; font-size: 1.4rem; text-transform: uppercase; text-align: center; }
+        .product-info small { color: #fff; opacity: 0.6; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; display: block; text-align: center; margin-bottom: 15px; }
+        
+        /* ESTILOS DE TEXTO DESCRIPCIÓN */
+        .product-info p { 
+            font-size: 0.9rem; 
+            color: #cccccc; 
+            margin-top: 15px; 
+            line-height: 1.5; 
+            text-align: justify;
+        }
 
         /* --- BOTONES PRODUCTO --- */
-        .btn-group { display: flex; gap: 10px; padding: 0 15px 20px; }
-        .btn { flex: 1; padding: 12px; border-radius: 8px; font-weight: bold; text-decoration: none; text-align: center; font-size: 0.8rem; border: none; cursor: pointer; text-transform: uppercase; }
+        .btn-group { display: flex; gap: 10px; padding: 0 25px 25px; }
+        .btn { flex: 1; padding: 12px; border-radius: 8px; font-weight: bold; text-decoration: none; text-align: center; font-size: 0.9rem; border: none; cursor: pointer; text-transform: uppercase; }
         .btn-video { background: var(--primary-gold); color: #000; }
         .btn-whatsapp { background: #25D366; color: #fff; }
         
@@ -39,18 +47,13 @@
         .brand-divider { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://i.postimg.cc/4yftSMhg/FONDO-EL-MUCO.png'); background-size: cover; background-position: center; border-top: 2px solid var(--primary-gold); border-bottom: 2px solid var(--primary-gold); }
         .logo-muco-section { width: 220px; margin-bottom: 20px; }
 
-        /* --- FOOTER CORREGIDO --- */
+        /* --- FOOTER --- */
         .footer-cover { background: #000; padding: 60px 20px; text-align: center; border-top: 2px solid var(--primary-gold); }
         .footer-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px; }
-        
         .footer-brands { display: flex; justify-content: center; width: 100%; flex-wrap: wrap; gap: 60px; }
         .footer-brand-box { display: flex; flex-direction: column; align-items: center; gap: 20px; flex: 1; min-width: 200px; }
-        
-        /* Ajuste de logos idénticos y alineados */
         .footer-logo-img { height: 90px; width: auto; object-fit: contain; filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.2)); }
-        
         .social-btn { width: 100%; max-width: 220px; padding: 12px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.8rem; color: #000; background: var(--primary-gold); text-transform: uppercase; }
-
         .web-btn { width: 100%; max-width: 500px; padding: 15px; border-radius: 30px; text-decoration: none; font-weight: 800; font-size: 0.9rem; color: #fff; border: 2px solid var(--primary-gold); text-transform: uppercase; margin-top: 10px; }
 
         /* MODAL */
@@ -79,13 +82,10 @@
     <div class="starry-background">
         <h2 class="muco-title" style="margin-bottom: 40px;">Rones Añejos El Muco</h2>
         <div class="catalog-grid" id="catalog-rones-anejos"></div>
-
         <h2 class="muco-title" style="margin: 60px 0 40px 0;">Licores Secos</h2>
         <div class="catalog-grid" id="catalog-licores-secos"></div>
-        
         <h2 class="muco-title" style="margin: 60px 0 40px 0;">Bebidas para Coctelería</h2>
         <div class="catalog-grid" id="catalog-cocteleria"></div>
-        
         <h2 class="muco-title" style="margin: 60px 0 40px 0;">Línea de Celebración</h2>
         <div class="catalog-grid" id="catalog-celebracion"></div>
     </div>
@@ -102,9 +102,7 @@
                     <a href="https://www.instagram.com/ronbodega1800/" target="_blank" class="social-btn">@ronbodega1800</a>
                 </div>
             </div>
-            
             <a href="http://www.ronbodega1800.com" target="_blank" class="web-btn">www.ronbodega1800.com</a>
-            
             <p style="font-size: 0.7rem; opacity: 0.4; margin-top: 20px;">&copy; 2025 Ron Bodega 1800 | Venezuela</p>
         </div>
     </footer>
@@ -117,38 +115,176 @@
     </div>
 
     <script>
+        /* BODEGA 1800 (FOTO ACTUALIZADA) */
         const productsBodega = [
-            { name: "Ron Bodega Millenium", type: "12 Años", sizes: ["0,70 lt"], desc: "Selección maestra de barricas.", image: "https://i.postimg.cc/wMDLM6Fy/RON_BODEGA_1800_MILLENIUM.png", video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" },
-            { name: "Ron Bodega Negro", type: "8 Años", sizes: ["0,70 lt"], desc: "Cuerpo robusto y añejamiento superior.", image: "https://i.postimg.cc/Wz0gz2Sd/RON_BODEGA_1800_NEGRO.png", video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" },
-            { name: "Ron Bodega Antiguo", type: "6 Años", sizes: ["0,70 lt"], desc: "Equilibrio perfecto de sabor.", image: "https://i.postimg.cc/br1krzLG/RON_BODEGA_1800_ANTIGUO.png", video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" }
+            { 
+                name: "Ron Bodega Millenium", 
+                type: "Extra Añejo (12 Años)", 
+                sizes: ["0,70 lt"], 
+                desc: "La máxima expresión de la marca. Ron Extra Añejo de hasta 12 años. Complejo en nariz con vainilla, coco y pimienta. En boca es robusto, revelando notas de pasas, frutos secos y un final maderoso persistente. Una experiencia para degustar puro.", 
+                image: "https://i.postimg.cc/5tk727NP/RON-BODEGA-1800-MILLENIUM-V2.png", 
+                video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" 
+            },
+            { 
+                name: "Ron Bodega Negro", 
+                type: "Añejo (8 Años)", 
+                sizes: ["0,70 lt"], 
+                desc: "Ron Añejo con D.O.C. Venezuela y un mínimo de 8 años en roble. De carácter fuerte y color ámbar natural, destaca por su intenso perfil maderoso y un excelente retrogusto. Ideal para disfrutar solo, a las rocas o para elevar cocteles de alta gama.", 
+                image: "https://i.postimg.cc/Wz0gz2Sd/RON_BODEGA_1800_NEGRO.png", 
+                video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" 
+            },
+            { 
+                name: "Ron Bodega Antiguo", 
+                type: "Añejo (6 Años)", 
+                sizes: ["0,70 lt"], 
+                desc: "Ron versátil de 6 años de añejamiento. Perfil robusto con notas de vainilla, almendras y caramelo tostado. Su equilibrio lo hace perfecto tanto para tomarse a las rocas como para elevar el nivel de tus mezclas. Excelente calidad.", 
+                image: "https://i.postimg.cc/br1krzLG/RON_BODEGA_1800_ANTIGUO.png", 
+                video: "https://www.dropbox.com/scl/fi/1xrg2bvepxoa16zmjw38r/BODEGA-1800.mp4?rlkey=swom0xm1z0s5iaz83eje9pot8&st=gcdpk65k&raw=1" 
+            }
         ];
 
+        /* RONES AÑEJOS EL MUCO */
         const ronesAnejos = [
-            { name: "El Muco", type: "Ron Añejo", sizes: ["0,35 lt", "0,70 lt", "1 lt"], desc: "Carácter y tradición.", image: "https://i.postimg.cc/sDR58hgd/RON_AÑEJO_EL_MUCO.jpg", video: "" },
-            { name: "Dinastía", type: "Ron Extra Añejo", sizes: ["0,70 lt"], desc: "Elegancia destilada.", image: "https://i.postimg.cc/bNj1Mtwf/DINASTIA.png", video: "" },
-            { name: "Emperador", type: "Ron Extra Añejo", sizes: ["0,70 lt"], desc: "El legado de la familia.", image: "https://i.postimg.cc/wTdDPmjK/EMPERADOR_CON_VASO.jpg", video: "" }
+            { 
+                name: "El Muco", 
+                type: "Ron Añejo", 
+                sizes: ["0,35 lt", "0,70 lt", "1 lt"], 
+                desc: "Ron clásico de larga tradición, orgullo de Carúpano. Blend de rones añejados entre 2 y 4 años en roble americano. De perfil robusto y color ámbar dorado, ofrece notas directas de madera, caramelo y caña. El sabor auténtico del oriente venezolano.", 
+                image: "https://i.postimg.cc/sDR58hgd/RON_AÑEJO_EL_MUCO.jpg", 
+                video: "" 
+            },
+            { 
+                name: "Dinastía", 
+                type: "Ron Extra Añejo", 
+                sizes: ["0,70 lt"], 
+                desc: "Ron Extra Añejo de perfil tradicional y dulce. Blend de rones de 2 a 6 años de maduración. En nariz cautiva con aromas a quesillo, caramelo tostado y almendras. En boca confirma notas de vainilla. Una opción versátil, ideal para elevar la coctelería o disfrutar a las rocas.", 
+                image: "https://i.postimg.cc/bNj1Mtwf/DINASTIA.png", 
+                video: "" 
+            },
+            { 
+                name: "Emperador", 
+                type: "Ron Extra Añejo", 
+                sizes: ["0,70 lt"], 
+                desc: "Desde el corazón de Carúpano llega este Ron Extra Añejo de gran tradición. Blend madurado en roble que despliega notas de caramelo, vainilla y frutos secos. Su perfil clásico y accesible lo convierte en el aliado perfecto para coctelería o para disfrutar puro.", 
+                image: "https://i.postimg.cc/wTdDPmjK/EMPERADOR_CON_VASO.jpg", 
+                video: "" 
+            }
         ];
 
+        /* LICORES SECOS */
         const licoresSecos = [
-            { name: "El Muco", type: "Licor Seco", sizes: ["0,70 lt", "1 lt"], desc: "Pureza clásica.", image: "https://i.postimg.cc/Xq6BTR3d/LICOR_SECO_EL_MUCO.jpg", video: "" },
-            { name: "Villa Teresa", type: "Licor Seco", sizes: ["0,35 lt", "0,70 lt", "1 lt"], desc: "Favorito por generaciones.", image: "https://i.postimg.cc/hvRQHkg1/LICOR_SECO_VILLA_TERESA.png", video: "" },
-            { name: "Altagracia", type: "Licor Seco", sizes: ["1 lt"], desc: "Sabor firme y balanceado.", image: "https://i.postimg.cc/GtnTZWrv/LICOR_SECO_ALTAGRACIA_png.jpg", video: "" },
-            { name: "La Cocuiza", type: "Licor Seco", sizes: ["1 lt"], desc: "Destilado de alta calidad.", image: "https://i.postimg.cc/fyQS6GZX/LICOR_SECO_COCUIZA_png.jpg", video: "" },
-            { name: "Blanquito", type: "Bebida Espirituosa", sizes: ["1 lt"], desc: "Ideal para compartir.", image: "https://i.postimg.cc/2yNLPsm4/LICOR_SECO_BLANQUITO.png", video: "" }
+            { 
+                name: "El Muco", 
+                type: "Licor Seco", 
+                sizes: ["0,70 lt", "1 lt"], 
+                desc: "La alternativa ideal para quienes buscan carácter y rendimiento. Destilado de caña de 40° con un perfil fuerte y neutro. Su versatilidad lo convierte en el protagonista perfecto para mezclas refrescantes, coctelería popular y celebraciones concurridas.", 
+                image: "https://i.postimg.cc/Xq6BTR3d/LICOR_SECO_EL_MUCO.jpg", 
+                video: "" 
+            },
+            { 
+                name: "Villa Teresa", 
+                type: "Licor Seco", 
+                sizes: ["0,35 lt", "0,70 lt", "1 lt"], 
+                desc: "Un clásico del oriente venezolano que equilibra precio y calidad. Licor seco de 40° con sabor directo a caña y ligeros matices dulces. Es sumamente amigable para combinar con jugos y refrescos en cualquier reunión informal.", 
+                image: "https://i.postimg.cc/hvRQHkg1/LICOR_SECO_VILLA_TERESA.png", 
+                video: "" 
+            },
+            { 
+                name: "Altagracia", 
+                type: "Licor Seco", 
+                sizes: ["1 lt"], 
+                desc: "La opción inteligente para tus eventos. Conocido por su excelente relación costo-calidad y perfil funcional. Es la base preferida y más accesible para elaborar ponches caseros, guarapitas y cocteles de gran volumen.", 
+                image: "https://i.postimg.cc/GtnTZWrv/LICOR_SECO_ALTAGRACIA_png.jpg", 
+                video: "" 
+            },
+            { 
+                name: "La Cocuiza", 
+                type: "Licor Seco", 
+                sizes: ["1 lt"], 
+                desc: "Destilado con carácter que rinde homenaje a la tradición. De perfil fuerte y directo (40°), es el licor seco ideal para quienes buscan intensidad sin complicaciones. Perfecto para rendir en celebraciones y mezclar con cola o jugos cítricos.", 
+                image: "https://i.postimg.cc/fyQS6GZX/LICOR_SECO_COCUIZA_png.jpg", 
+                video: "" 
+            },
+            { 
+                name: "Blanquito", 
+                type: "Bebida Espirituosa", 
+                sizes: ["1 lt"], 
+                desc: "Espirituosa de caña cristalina y brillante. Su perfil neutro y sin añejamiento resalta la pureza de la caña. Es el aliado insustituible para la coctelería tropical (mojitos, daiquiris) o para quienes prefieren un sabor limpio, potente y transparente.", 
+                image: "https://i.postimg.cc/2yNLPsm4/LICOR_SECO_BLANQUITO.png", 
+                video: "" 
+            }
         ];
 
+        /* COCTELERÍA */
         const cocteleria = [
-            { name: "Anís El Muco", type: "Licor Dulce", sizes: ["1 lt"], desc: "Aroma inconfundible.", image: "https://i.postimg.cc/50CFK4c2/ANIS_2.png", video: "" },
-            { name: "DryGyn", type: "Cítrus", sizes: ["0,75 lt"], desc: "Esencia botánica refrescante.", image: "https://i.postimg.cc/Hxy7vYGY/GYN.jpg", video: "" },
-            { name: "Vodka", type: "Cítrus", sizes: ["0,75 lt"], desc: "Neutralidad y pureza.", image: "https://i.postimg.cc/9M7qgm3X/VODKA_png.jpg", video: "" }
+            { 
+                name: "Anís El Muco", 
+                type: "Licor Dulce", 
+                sizes: ["1 lt"], 
+                desc: "Licor dulce de tradición venezolana (30°). Su perfil aromático y refrescante proviene del anís verde natural. Es el acompañante versátil por excelencia: ideal como digestivo, para repostería o para las populares mezclas con limón, yogurt y hielo.", 
+                image: "https://i.postimg.cc/50CFK4c2/ANIS_2.png", 
+                video: "" 
+            },
+            { 
+                name: "DryGyn Cítrus", 
+                type: "London Dry Gin", 
+                sizes: ["0,75 lt"], 
+                desc: "Ginebra estilo London Dry (40°) con un vibrante perfil cítrico. Combina la fuerza clásica del enebro con notas frescas de limón. La base perfecta y económica para preparar un Gin Tonic refrescante o elevar cualquier coctel de verano.", 
+                image: "https://i.postimg.cc/Hxy7vYGY/GYN.jpg", 
+                video: "" 
+            },
+            { 
+                name: "Vodka Cítrus", 
+                type: "Vodka Saborizado", 
+                sizes: ["0,75 lt"], 
+                desc: "Vodka cristalino (40°) infusionado con notas naturales de limón y lima. Su perfil suave y limpio ofrece frescura inmediata. Ideal para coctelería rápida: mézclalo con soda, tónica o jugos para obtener un trago refrescante y lleno de sabor.", 
+                image: "https://i.postimg.cc/9M7qgm3X/VODKA_png.jpg", 
+                video: "" 
+            }
         ];
 
+        /* CELEBRACIÓN */
         const celebracion = [
-            { name: "Blason d'Or", type: "Demi-Sec", sizes: ["0,75 lt"], desc: "Brindis de distinción.", image: "https://i.postimg.cc/K80LRprb/CELEBRACION_VINO_BLASON_png.jpg", video: "" },
-            { name: "Novello", type: "Tinto Espumante", sizes: ["0,75 lt"], desc: "Innovación en burbujas.", image: "https://i.postimg.cc/9fS7B4nP/NOVELLO.png", video: "" },
-            { name: "Manzanares", type: "Vino de Manzana", sizes: ["0,75 lt"], desc: "Sabor frutal natural.", image: "https://i.postimg.cc/5tjzv5nw/MANZANARES.jpg", video: "" },
-            { name: "Piccolino", type: "Vino Blanco Soda", sizes: ["0,75 lt"], desc: "Chispeante y ligero.", image: "https://i.postimg.cc/g05ZKwTV/PICCOLINO.png", video: "" },
-            { name: "Sangría Plaza Real", type: "Sangría", sizes: ["1,75 lt"], desc: "Sabor tradicional.", image: "https://i.postimg.cc/pd7FB96D/SANGRIA_png.jpg", video: "" }
+            { 
+                name: "Blason d'Or", 
+                type: "Demi-Sec", 
+                sizes: ["0,75 lt"], 
+                desc: "Espumante Demi-Sec (semiseco) de perfil festivo. Notas de frutas blancas y burbuja persistente. Su dulzor equilibrado lo hace el favorito para brindis, bodas y coctelería (mimosas). La elección clásica venezolana para celebrar con elegancia.", 
+                image: "https://i.postimg.cc/K80LRprb/CELEBRACION_VINO_BLASON_png.jpg", 
+                video: "" 
+            },
+            { 
+                name: "Novello", 
+                type: "Tinto Espumante", 
+                sizes: ["0,75 lt"], 
+                desc: "Innovación en burbujas. Espumante tinto vibrante con notas de cerezas y fresas maduras. Su carácter dulce, efervescente y color intenso ofrece una experiencia única y seductora. Sírvelo bien frío para potenciar su frescura.", 
+                image: "https://i.postimg.cc/9fS7B4nP/NOVELLO.png", 
+                video: "" 
+            },
+            { 
+                name: "Manzanares", 
+                type: "Vino de Manzana", 
+                sizes: ["0,75 lt"], 
+                desc: "Tradición frutal de Carúpano. Vino dulce elaborado con jugo de manzana fermentado. De color dorado y aroma intenso, es un ícono de versatilidad: delicioso para beber muy frío y el ingrediente secreto indispensable para la repostería y cocina.", 
+                image: "https://i.postimg.cc/5tjzv5nw/MANZANARES.jpg", 
+                video: "" 
+            },
+            { 
+                name: "Piccolino", 
+                type: "Vino Blanco Soda", 
+                sizes: ["0,75 lt"], 
+                desc: "Refrescante combinación de vino blanco y soda tipo Spritzer. De baja graduación y burbuja suave, ofrece un perfil ligero y afrutado. Listo para tomar y disfrutar muy frío. La alternativa ideal para un consumo casual y relajado.", 
+                image: "https://i.postimg.cc/g05ZKwTV/PICCOLINO.png", 
+                video: "" 
+            },
+            { 
+                name: "Sangría Plaza Real", 
+                type: "Sangría", 
+                sizes: ["1,75 lt"], 
+                desc: "La reina de las reuniones. Sangría lista para servir que combina vino tinto joven con notas cítricas y tropicales. Dulce, equilibrada y ligera (10° GL). Sírvela en jarra con mucho hielo y frutas picadas para acompañar parrillas y momentos especiales.", 
+                image: "https://i.postimg.cc/pd7FB96D/SANGRIA_png.jpg", 
+                video: "" 
+            }
         ];
 
         function createCard(p) {
@@ -156,7 +292,7 @@
                 ? `<select style="width:100%; padding:8px; border-radius:5px; margin-bottom:10px; background:#1a1a1a; color:#fff; border:1px solid var(--primary-gold); font-family:Montserrat;">
                     ${p.sizes.map(s => `<option value="${s}">${s}</option>`).join('')}
                    </select>`
-                : `<p style="font-size:0.8rem; opacity:0.7; margin-bottom:10px;">${p.sizes[0]}</p>`) : "";
+                : `<p style="font-size:0.8rem; opacity:0.7; margin-bottom:10px; text-align:center;">${p.sizes[0]}</p>`) : "";
 
             return `<div class="product-card">
                 <img src="${p.image}" class="product-image">
@@ -182,7 +318,7 @@
         }
 
         function openVideo(url) {
-            if(!url) return alert("Video no disponible.");
+            if(!url) return alert("Video no disponible momentáneamente.");
             document.getElementById('videoContainer').innerHTML = `<video controls autoplay><source src="${url}" type="video/mp4"></video>`;
             document.getElementById('videoModal').style.display = 'flex';
         }
